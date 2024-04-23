@@ -55,7 +55,7 @@ The way to continue training: `python train.py --dataroot ./datasets/paintings -
 
 The way to apply (test) a pretrained-model: `python test.py --dataroot ./datasets/paintings/testA --name style_ukiyoe_pretrained --model test --no_dropout`
 
-Thus the way to finetune a pretrained model should be: `python train.py --dataroot datasets/paintings/testA --name horse2zebra_pretrained -- model test --no_dropout`
+Thus the way to finetune a pretrained model should be: `python train.py --dataroot datasets/paintings/testA --name style_ukiyoe_pretrained -- model test --no_dropout`
 
 
 
