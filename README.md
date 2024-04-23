@@ -1,6 +1,6 @@
 # README
 
-This is the project for COSC_5470.
+This is the project for COSC_5470 at Georgetown University.
 
 **Team member:** Zihang Zhu & Xingjian Qu
 
