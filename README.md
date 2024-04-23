@@ -4,7 +4,7 @@ This is the project for COSC_5470 at Georgetown University.
 
 **Team member:** Zihang Zhu & Xingjian Qu
 
-### 1. The model we use
+## 1. The model we use
 
 - [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix):  https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 
@@ -59,7 +59,7 @@ Thus the way to finetune a pretrained model should be: `python train.py --dataro
 
 
 
-### 2.Dataset:
+## 2. Dataset:
 
 **The paintings and photos we collected online:** https://bj.bcebos.com/ai-studio-online/74093cefb87d4a19b76c4cb41de95cec3a5c569d512e4d30b5721de375387e15?authorization=bce-auth-v1%2F5cfe9a5e1454405eb2a975c43eace6ec%2F2022-09-04T15%3A26%3A15Z%2F-1%2F%2F39badccc068729eb5061a1f675bbcdc9e53ca4559aea8a7379a1108146915434&responseContentDisposition=attachment%3B%20filename%3Dpainting.zip
 
@@ -82,7 +82,7 @@ In the first datasets, the photos have very low resolutions, because all of them
 
 
 
-### 3. Training methods and details:
+## 3. Training methods and details:
 
 Pre-trained model: style_ukiyoe http://efrosgans.eecs.berkeley.edu/cyclegan/pretrained_models/style_ukiyoe.pth
 
@@ -94,7 +94,7 @@ We tried some Hyper-parameter tuning on CycleGAN. The first screenshot shows the
 
 
 
-### 4. Results:
+## 4. Results:
 
 ###### **Landscapes:**
 
@@ -126,7 +126,7 @@ Generated ink wash paintings:
 
 
 
-### Citation
+## Citation
 
 ```
 @inproceedings{CycleGAN2017,
