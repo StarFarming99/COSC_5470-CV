@@ -21,8 +21,7 @@ channels:
 - defaults
 dependencies:
 - python=3.8
-- pytorch=1.8.1 -- I downloaded Pytorch 1.13.0 including CUDA because the
-recommended version do not support CUDA
+- pytorch=1.8.1 -- I downloaded Pytorch 1.13.0 including CUDA because the recommended version does not support CUDA
 - scipy
 - pip
 - pip:
@@ -41,7 +40,7 @@ recommended version do not support CUDA
 - Go for pytorch 1.9.1 with cuda --> 'torch.C' has no attribute 'cuda_setDevice'.
   - Still need higher version of pytorch.
 - Go for pytorch 1.13.0 -- finally work, but a new problem :
-  - UserWarning: Detected call of lr_scheduler.step() before opt imizer.step() . In PyTorch 1.1.0 and later, you should call them in the opposite order: optimizer.step() before lr_scheduler.step() .
+  - UserWarning: Detected call of lr_scheduler.step() before opt imizer.step() . In PyTorch 1.1.0 and later, you should call them in the opposite order: optimizer.step() before lr_scheduler.step()
 - Solution:
   - Comment out line 43 in train.py model.update_learning_rate() 
   - Add it to the line 78 after current epoch is finished
@@ -52,11 +51,11 @@ Record about how to train and test the model:
 
 - To view training results and loss plots, run python -m visdom.server and click the URL http://localhost:8097.
 
-The way to continue training: `python train.py --dataroot ./datasets/painting --name ink_cyclegan --model cycle_gan -- continue_train`
+The way to continue training: `python train.py --dataroot ./datasets/paintings --name style_ukiyoe_pretrained --model cycle_gan --continue_train`
 
-The way to apply (test) a pretrained-model: `python test.py --dataroot ./datasets/painting/testA --name style_ukiyoe_pretrained -- model test --no_dropout`
+The way to apply (test) a pretrained-model: `python test.py --dataroot ./datasets/paintings/testA --name style_ukiyoe_pretrained --model test --no_dropout`
 
-Thus the way to finetune a pretrained model should be: `python train.py --dataroot datasets/horse2zebra/testA --name horse2zebra_pretrained -- model test --no_dropout`
+Thus the way to finetune a pretrained model should be: `python train.py --dataroot datasets/paintings/testA --name horse2zebra_pretrained -- model test --no_dropout`
 
 
 
@@ -79,7 +78,7 @@ You can download their dataset here: https://pan.baidu.com/s/1oXFVv1tZCkUSoH2pSx
 
 
 
-In the first datasets, the photos have very low resolutions, because all of them are coming from the real pictures. To improve the results of our model, we remove some pictures and add some high quality data from ChipGAN's dataset.
+In the first datasets, the photos have very low resolutions, because all of them are coming from the real pictures. To improve the results of our model, we remove some pictures and add some high-quality data from ChipGAN's dataset.
 
 
 
@@ -87,11 +86,11 @@ In the first datasets, the photos have very low resolutions, because all of them
 
 Pre-trained model: style_ukiyoe http://efrosgans.eecs.berkeley.edu/cyclegan/pretrained_models/style_ukiyoe.pth
 
-Among the pre-trained model provided by the author, there is one that can be helpful for our task, which is the `style_ukiyoe` pretrained model, the style is a painting style originated from Japan and has some similarity with traditional Chinese painting. Therefore, maybe i can get a better result from finetuning that model.
+Among the pre-trained models provided by the author, there is one that can be helpful for our task, which is the `style_ukiyoe` pretrained model, the style is a painting style that originated from Japan and has some similarity with traditional Chinese painting. Therefore, maybe i can get a better result from finetuning that model.
 
-We tried some Hyper-parameter tuning on CycleGAN. The first screenshot shows the default setting of the original CycleGAN. We tested several combinations of hyperparameters including learning rate and numbers of epochs and figured out that the model that has the best performance was trained with the setup of learning rate: 0.0004, batch size: 1, and the number of epochs: 130. We raised the ratio of generators from realistic photos to ink drawings on the loss function from 1 to 1.5. According to the feedback of our investigation, it successfully reduces the chance that our generated images being recognized as computer-generated.
+We tried some Hyper-parameter tuning on CycleGAN. The first screenshot shows the default setting of the original CycleGAN. We tested several combinations of hyperparameters including learning rate and number of epochs and figured out that the model that has the best performance was trained with the setup of learning rate: 0.0004, batch size: 1, and the number of epochs: 130. We raised the ratio of generators from realistic photos to ink drawings on the loss function from 1 to 1.5. According to the feedback of our investigation, it successfully reduces the chance that our generated images are recognized as computer-generated.
 
-Our models are provided, you can continue the training process with them.
+Our models are provided, and you can continue the training process with them.
 
 
 
