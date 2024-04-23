@@ -101,13 +101,13 @@ We tried some Hyper-parameter tuning on CycleGAN. The first screenshot shows the
 
 Real-life pictures:
 
-![](./results\real_pictures.png)
+![](./results/real_pictures.png)
 
 
 
 Generated ink wash paintings:
 
-![](./results\generated_results.png)
+![](./results/generated_results.png)
 
 
 
@@ -115,7 +115,7 @@ Generated ink wash paintings:
 
 Real-life pictures:
 
-![](./results\real_horses.png)
+![](./results/real_horses.png)
 
 
 
@@ -123,7 +123,7 @@ Generated ink wash paintings:
 
 
 
-![](./results\generated_horses.png)
+![](./results/generated_horses.png)
 
 
 
