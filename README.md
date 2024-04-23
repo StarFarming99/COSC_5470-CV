@@ -91,7 +91,7 @@ Among the pre-trained model provided by the author, there is one that can be hel
 
 We tried some Hyper-parameter tuning on CycleGAN. The first screenshot shows the default setting of the original CycleGAN. We tested several combinations of hyperparameters including learning rate and numbers of epochs and figured out that the model that has the best performance was trained with the setup of learning rate: 0.0004, batch size: 1, and the number of epochs: 130. We raised the ratio of generators from realistic photos to ink drawings on the loss function from 1 to 1.5. According to the feedback of our investigation, it successfully reduces the chance that our generated images being recognized as computer-generated.
 
-
+Our models are provided, you can continue the training process with them.
 
 
 
