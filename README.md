@@ -2,7 +2,7 @@
 
 This is the project for COSC_5470 at Georgetown University.
 
-**Team member:** Zihang Zhu & Xingjian Qu
+**Team member:** Zihang Zhu:zz451, Xingjian Qu:xq59
 
 ## 1. The model we use
 
