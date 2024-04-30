@@ -130,7 +130,8 @@ We found that several target photos may have bad results after generating them. 
 1. Some pictures are not suitable targets for transferring styles to ink wash paintings, like white horses.
 2. When the model finds some objects it has never seen before, these objects will be generated to something else.
 
-
+![](./results/1_fake.png)
+![](./results/1_real.png)
 
 ## Citation
 
