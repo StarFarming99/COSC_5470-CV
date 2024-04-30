@@ -45,13 +45,14 @@ dependencies:
   - Comment out line 43 in train.py model.update_learning_rate() 
   - Add it to the line 78 after current epoch is finished
 
-**Some tips for using the model:**
+**Steps on how to run the model:**
+First, clone our repo, and install all the requirements above.
 
 Record about how to train and test the model:
 
 - To view training results and loss plots, run python -m visdom.server and click the URL http://localhost:8097.
 
-The way to continue training: `python train.py --dataroot ./datasets/paintings --name style_ukiyoe_pretrained --model cycle_gan --continue_train`
+The way to continue training on a pretrained model: `python train.py --dataroot ./datasets/paintings --name style_ukiyoe_pretrained --model cycle_gan --continue_train`
 
 The way to apply (test) a pretrained-model: `python test.py --dataroot ./datasets/paintings/testA --name style_ukiyoe_pretrained --model test --no_dropout`
 
@@ -86,7 +87,7 @@ In the first datasets, the photos have very low resolutions, because all of them
 
 Pre-trained model: style_ukiyoe http://efrosgans.eecs.berkeley.edu/cyclegan/pretrained_models/style_ukiyoe.pth
 
-Among the pre-trained models provided by the author, there is one that can be helpful for our task, which is the `style_ukiyoe` pretrained model, the style is a painting style that originated from Japan and has some similarity with traditional Chinese painting. Therefore, maybe i can get a better result from finetuning that model.
+Among the pre-trained models provided by the author, there is one that can be helpful for our task, which is the `style_ukiyoe` pretrained model, the style is a painting style that originated from Japan and has some similarity with traditional Chinese painting. Therefore, maybe we can get a better result from finetuning that model.
 
 We tried some Hyper-parameter tuning on CycleGAN. The first screenshot shows the default setting of the original CycleGAN. We tested several combinations of hyperparameters including learning rate and number of epochs and figured out that the model that has the best performance was trained with the setup of learning rate: 0.0004, batch size: 1, and the number of epochs: 130. We raised the ratio of generators from realistic photos to ink drawings on the loss function from 1 to 1.5. According to the feedback of our investigation, it successfully reduces the chance that our generated images are recognized as computer-generated.
 
@@ -123,6 +124,11 @@ Generated ink wash paintings:
 
 
 ![](./results/generated_horses.png)
+
+## 6. Additional creative exploration:
+We found that several target photos may have bad results after generating them. In our opinion, there are two main problems.
+1. Some pictures are not suitable targets for transferring styles to ink wash paintings, like white horses.
+2. When the model finds some objects it has never seen before, these objects will be generated to something else.
 
 
 
