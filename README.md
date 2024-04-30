@@ -2,9 +2,9 @@
 
 This is the project for COSC_5470 at Georgetown University.
 
-**Team member:** Zihang Zhu & Xingjian Qu
+**Team member:** Zihang Zhu:zz451, Xingjian Qu:xq59
 
-### 1. The model we use
+## 1. The model we use
 
 - [pytorch-CycleGAN-and-pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix):  https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 
@@ -45,13 +45,14 @@ dependencies:
   - Comment out line 43 in train.py model.update_learning_rate() 
   - Add it to the line 78 after current epoch is finished
 
-**Some tips for using the model:**
+**Steps on how to run the model:**
+First, clone our repo, and install all the requirements above.
 
 Record about how to train and test the model:
 
 - To view training results and loss plots, run python -m visdom.server and click the URL http://localhost:8097.
 
-The way to continue training: `python train.py --dataroot ./datasets/paintings --name style_ukiyoe_pretrained --model cycle_gan --continue_train`
+The way to continue training on a pretrained model: `python train.py --dataroot ./datasets/paintings --name style_ukiyoe_pretrained --model cycle_gan --continue_train`
 
 The way to apply (test) a pretrained-model: `python test.py --dataroot ./datasets/paintings/testA --name style_ukiyoe_pretrained --model test --no_dropout`
 
@@ -59,7 +60,7 @@ Thus the way to finetune a pretrained model should be: `python train.py --dataro
 
 
 
-### 2.Dataset:
+## 2. Dataset:
 
 **The paintings and photos we collected online:** https://bj.bcebos.com/ai-studio-online/74093cefb87d4a19b76c4cb41de95cec3a5c569d512e4d30b5721de375387e15?authorization=bce-auth-v1%2F5cfe9a5e1454405eb2a975c43eace6ec%2F2022-09-04T15%3A26%3A15Z%2F-1%2F%2F39badccc068729eb5061a1f675bbcdc9e53ca4559aea8a7379a1108146915434&responseContentDisposition=attachment%3B%20filename%3Dpainting.zip
 
@@ -82,19 +83,19 @@ In the first datasets, the photos have very low resolutions, because all of them
 
 
 
-### 3. Training methods and details:
+## 3. Training methods and details:
 
 Pre-trained model: style_ukiyoe http://efrosgans.eecs.berkeley.edu/cyclegan/pretrained_models/style_ukiyoe.pth
 
-Among the pre-trained models provided by the author, there is one that can be helpful for our task, which is the `style_ukiyoe` pretrained model, the style is a painting style that originated from Japan and has some similarity with traditional Chinese painting. Therefore, maybe i can get a better result from finetuning that model.
+Among the pre-trained models provided by the author, there is one that can be helpful for our task, which is the `style_ukiyoe` pretrained model, the style is a painting style that originated from Japan and has some similarity with traditional Chinese painting. Therefore, maybe we can get a better result from finetuning that model.
 
 We tried some Hyper-parameter tuning on CycleGAN. The first screenshot shows the default setting of the original CycleGAN. We tested several combinations of hyperparameters including learning rate and number of epochs and figured out that the model that has the best performance was trained with the setup of learning rate: 0.0004, batch size: 1, and the number of epochs: 130. We raised the ratio of generators from realistic photos to ink drawings on the loss function from 1 to 1.5. According to the feedback of our investigation, it successfully reduces the chance that our generated images are recognized as computer-generated.
 
-Our models are provided, and you can continue the training process with them.
+**Our models are provided, and you can continue the training process with them. The pretrained model is in the checkpoints file.**
 
 
 
-### 4. Results:
+## 4. Results:
 
 ###### **Landscapes:**
 
@@ -124,9 +125,14 @@ Generated ink wash paintings:
 
 ![](./results/generated_horses.png)
 
+## 6. Additional creative exploration:
+We found that several target photos may have bad results after generating them. In our opinion, there are two main problems.
+1. Some pictures are not suitable targets for transferring styles to ink wash paintings, like white horses.
+2. When the model finds some objects it has never seen before, these objects will be generated to something else.
 
 
-### Citation
+
+## Citation
 
 ```
 @inproceedings{CycleGAN2017,
